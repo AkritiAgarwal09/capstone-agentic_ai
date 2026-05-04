@@ -1,0 +1,87 @@
+# .gcloudignore
+# Tells `gcloud` which files to skip when uploading source to Cloud Build.
+# Placed at the repo root alongside cloudbuild-backend.yaml / cloudbuild-frontend.yaml.
+# Syntax mirrors .gitignore. Lines beginning with # are comments.
+
+# ──────────────────────────────────────────────
+# Always ignore the .gcloudignore file itself
+# ──────────────────────────────────────────────
+.gcloudignore
+
+# ──────────────────────────────────────────────
+# Git metadata
+# ──────────────────────────────────────────────
+.git/
+.gitignore
+
+# ──────────────────────────────────────────────
+# macOS noise
+# ──────────────────────────────────────────────
+.DS_Store
+**/.DS_Store
+
+# ──────────────────────────────────────────────
+# Secrets & local environment overrides
+# Never upload – Cloud Build injects these via Secret Manager
+# ──────────────────────────────────────────────
+.env
+.env.*
+!.env.example
+
+# ──────────────────────────────────────────────
+# Documentation
+# ──────────────────────────────────────────────
+README.md
+docs/
+*.md
+
+# ──────────────────────────────────────────────
+# Backend – Python artefacts that bloat the upload
+# ──────────────────────────────────────────────
+backend/__pycache__/
+backend/**/__pycache__/
+backend/*.pyc
+backend/**/*.pyc
+backend/*.pyo
+backend/**/*.pyo
+backend/*.egg-info/
+backend/**/*.egg-info/
+backend/.pytest_cache/
+backend/.mypy_cache/
+backend/.ruff_cache/
+backend/htmlcov/
+backend/.coverage
+backend/dist/
+backend/build/
+
+# ──────────────────────────────────────────────
+# Frontend – large artefacts not needed by Cloud Build
+# The Docker multi-stage build runs `npm ci` and `npm run build`
+# inside the container, so none of these should be uploaded.
+# ──────────────────────────────────────────────
+
+# Next.js build output & cache (biggest wins – often hundreds of MB)
+frontend/.next/
+
+# Installed dependencies (rebuilt inside the container by `npm ci`)
+frontend/node_modules/
+
+# Local env overrides
+frontend/.env.local
+frontend/.env.development.local
+frontend/.env.test.local
+frontend/.env.production.local
+
+# TypeScript incremental build info
+frontend/**/*.tsbuildinfo
+
+# Test / coverage output
+frontend/coverage/
+
+# ──────────────────────────────────────────────
+# Editor & IDE files
+# ──────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
