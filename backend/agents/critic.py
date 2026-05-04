@@ -4,6 +4,7 @@ from typing import Any
 
 from pydantic_ai import Agent
 from models import CriticResult
+from model_config import make_agent
 
 _SYSTEM = """\
 You are a rigorous peer reviewer. Your job is to surface honest, evidence-grounded criticism.
@@ -32,14 +33,7 @@ Do not escape the JSON as a string.
 Be fair. Acknowledge genuine contributions. But be thorough on weaknesses.\
 """
 
-critic_agent = Agent(
-    "ollama:llama3.1:8b",
-    output_type=str,
-    system_prompt=_SYSTEM,
-    retries=2,
-    output_retries=3,
-    defer_model_check=True,
-)
+critic_agent = make_agent(_SYSTEM)
 
 
 def _extract_json_object(text: str) -> str:

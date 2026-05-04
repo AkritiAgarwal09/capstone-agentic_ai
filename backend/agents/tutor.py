@@ -5,6 +5,7 @@ from typing import Any
 
 from pydantic_ai import Agent
 from models import TutorResponse, QuizResult
+from model_config import make_agent
 
 _TUTOR_SYSTEM = """\
 You are a brilliant professor who excels at explaining complex research to students.
@@ -43,23 +44,9 @@ Do not include name or parameters.
 Do not escape the JSON as a string.\
 """
 
-tutor_agent = Agent(
-    "ollama:llama3.1:8b",
-    output_type=str,
-    system_prompt=_TUTOR_SYSTEM,
-    retries=2,
-    output_retries=3,
-    defer_model_check=True,
-)
+tutor_agent = make_agent(_TUTOR_SYSTEM)
 
-quiz_agent = Agent(
-    "ollama:llama3.1:8b",
-    output_type=str,
-    system_prompt=_QUIZ_SYSTEM,
-    retries=2,
-    output_retries=3,
-    defer_model_check=True,
-)
+quiz_agent = make_agent(_QUIZ_SYSTEM)
 
 
 def _extract_json_object(text: str) -> str:

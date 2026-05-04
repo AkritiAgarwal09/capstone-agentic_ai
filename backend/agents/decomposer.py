@@ -5,6 +5,7 @@ from typing import Any
 
 from pydantic_ai import Agent
 from models import DecomposedPaper, PaperSection
+from model_config import make_agent
 
 _SYSTEM = """\
 You are an expert academic researcher who explains research papers clearly.
@@ -39,14 +40,7 @@ Do not escape the JSON as a string.
 Be faithful to the paper - do not invent claims not present in the text.\
 """
 
-decomposer_agent = Agent(
-    "ollama:llama3.1:8b",
-    output_type=str,
-    system_prompt=_SYSTEM,
-    retries=2,
-    output_retries=3,
-    defer_model_check=True,
-)
+decomposer_agent = make_agent(_SYSTEM)
 
 
 def _extract_json_object(text: str) -> str:
