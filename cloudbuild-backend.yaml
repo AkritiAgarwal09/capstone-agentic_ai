@@ -25,3 +25,5 @@ steps:
       - --timeout=300
       - --max-instances=1
       - --set-secrets=ANTHROPIC_API_KEY=anthropic-api-key:latest
+images:
+  - "gcr.io/$PROJECT_ID/academic-copilot-backend:$COMMIT_SHA"
