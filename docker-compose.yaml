@@ -22,7 +22,7 @@ services:
     build:
       context: ./frontend
       args:
-        NEXT_PUBLIC_API_URL: ${BACKEND_PUBLIC_URL}
+        NEXT_PUBLIC_API_URL: https://capstone-agentic-ai-backend-3j5mi36wwa-uc.a.run.app
     container_name: capstone-agentic-ai-frontend
     ports:
       - "3000:3000"
