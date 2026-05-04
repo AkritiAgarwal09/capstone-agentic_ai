@@ -4,7 +4,7 @@
 
 Four AI agents working in parallel to decompose, contextualize, critique, and teach any research paper — from PDF upload or arXiv ID.
 
-**Live URL:** `<your-deployed-url>`
+**Live URL:** `https://capstone-agentic-ai-frontend-177617146543.us-central1.run.app/`
 
 ---
 
