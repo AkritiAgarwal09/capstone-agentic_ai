@@ -1,5 +1,5 @@
 [project]
-name = "academic-copilot-backend"
+name = "capstone-agentic-ai-backend"
 version = "0.1.0"
 description = "Academic Copilot — multi-agent paper analysis backend"
 requires-python = ">=3.11"

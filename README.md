@@ -111,12 +111,12 @@ echo -n "sk-ant-..." | gcloud secrets create anthropic-api-key --data-file=-
 ### Deploy backend
 ```bash
 gcloud builds submit --config cloudbuild-backend.yaml
-# Note the Cloud Run URL, e.g. https://academic-copilot-backend-xxx.run.app
+# Note the Cloud Run URL, e.g. https://capstone-agentic-ai-backend-xxx.run.app
 ```
 
 ### Deploy frontend
 ```bash
-echo -n "https://academic-copilot-backend-xxx.run.app" | gcloud secrets create backend-url --data-file=-
+echo -n "https://capstone-agentic-ai-backend-xxx.run.app" | gcloud secrets create backend-url --data-file=-
 gcloud builds submit --config cloudbuild-frontend.yaml
 ```
 

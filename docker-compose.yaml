@@ -10,7 +10,7 @@ services:
   backend:
     build:
       context: ./backend
-    container_name: academic-copilot-backend
+    container_name: capstone-agentic-ai-backend
     ports:
       - "8080:8080"
     environment:
