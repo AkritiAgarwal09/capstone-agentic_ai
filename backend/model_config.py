@@ -22,20 +22,18 @@ _IS_CLOUD = bool(os.getenv("K_SERVICE") or os.getenv("USE_CLOUD_MODELS"))
 
 # ── Model names ────────────────────────────────────────────
 OLLAMA_MODEL     = "ollama:llama3.1:8b"
-GEMINI_MODEL     = "google-gla:gemini-2.0-flash"
-ANTHROPIC_MODEL  = "anthropic:claude-3-5-haiku-latest"
+GROQ_MODEL = "groq:llama-3.1-8b-instant"
+2
 
-
-def get_model() -> str | Model:
+def get_model():
     if not _IS_CLOUD:
         return OLLAMA_MODEL
-
-    gemini_key = os.getenv("GEMINI_API_KEY")
-    if not gemini_key:
-        raise RuntimeError("GEMINI_API_KEY is not set.")
-
-    logger.info("Cloud mode — using Gemini (%s)", GEMINI_MODEL)
-    return GEMINI_MODEL
+    
+    groq_key = os.getenv("GROQ_API_KEY")
+    if not groq_key:
+        raise RuntimeError("GROQ_API_KEY is not set.")
+    
+    return GROQ_MODEL
 
 
 def make_agent(system_prompt: str, **kwargs) -> Agent:

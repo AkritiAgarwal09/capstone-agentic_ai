@@ -24,6 +24,6 @@ steps:
       - --memory=1Gi
       - --timeout=300
       - --max-instances=1
-      - --set-secrets=GEMINI_API_KEY=gemini-api-key:latest
+      - --set-secrets=GROQ_API_KEY=groq-api-key:latest
 images:
   - "gcr.io/$PROJECT_ID/capstone-agentic-ai-backend:$COMMIT_SHA"
