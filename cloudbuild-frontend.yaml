@@ -5,10 +5,8 @@ steps:
       - -t
       - "gcr.io/$PROJECT_ID/capstone-agentic-ai-frontend:$COMMIT_SHA"
       - --build-arg
-      - NEXT_PUBLIC_API_URL=$$BACKEND_URL
+      - NEXT_PUBLIC_API_URL=https://capstone-agentic-ai-backend-177617146543.us-central1.run.app
       - frontend/
-    secretEnv:
-      - BACKEND_URL
 
   - name: "gcr.io/cloud-builders/docker"
     args:
@@ -25,8 +23,8 @@ steps:
       - --region=us-central1
       - --platform=managed
       - --allow-unauthenticated
+      - --memory=1Gi
+      - --timeout=300
 
-availableSecrets:
-  secretManager:
-    - versionName: projects/$PROJECT_ID/secrets/backend-url/versions/latest
-      env: BACKEND_URL
+images:
+  - "gcr.io/$PROJECT_ID/capstone-agentic-ai-frontend:$COMMIT_SHA"
