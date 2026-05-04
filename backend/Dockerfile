@@ -8,7 +8,8 @@ COPY pyproject.toml .
 RUN uv pip install --system \
     "fastapi>=0.115.0" \
     "uvicorn[standard]>=0.32.0" \
-    "pydantic-ai>=1.0.0" \
+    "pydantic-ai[ollama]>=1.0.0" \
+    "python-dotenv>=1.2.2" \
     "pymupdf>=1.24.0" \
     "httpx>=0.27.0" \
     "python-multipart>=0.0.12" \
