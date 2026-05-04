@@ -23,7 +23,7 @@ services:
       context: ./frontend
       args:
         NEXT_PUBLIC_API_URL: ${BACKEND_PUBLIC_URL}
-    container_name: academic-copilot-frontend
+    container_name: capstone-agentic-ai-frontend
     ports:
       - "3000:3000"
     depends_on:

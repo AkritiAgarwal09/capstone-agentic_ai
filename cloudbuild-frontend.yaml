@@ -3,7 +3,7 @@ steps:
     args:
       - build
       - -t
-      - "gcr.io/$PROJECT_ID/academic-copilot-frontend:$COMMIT_SHA"
+      - "gcr.io/$PROJECT_ID/capstone-agentic-ai-frontend:$COMMIT_SHA"
       - --build-arg
       - NEXT_PUBLIC_API_URL=$$BACKEND_URL
       - frontend/
@@ -13,15 +13,15 @@ steps:
   - name: "gcr.io/cloud-builders/docker"
     args:
       - push
-      - "gcr.io/$PROJECT_ID/academic-copilot-frontend:$COMMIT_SHA"
+      - "gcr.io/$PROJECT_ID/capstone-agentic-ai-frontend:$COMMIT_SHA"
 
   - name: "gcr.io/google.com/cloudsdktool/cloud-sdk"
     entrypoint: gcloud
     args:
       - run
       - deploy
-      - academic-copilot-frontend
-      - --image=gcr.io/$PROJECT_ID/academic-copilot-frontend:$COMMIT_SHA
+      - capstone-agentic-ai-frontend
+      - --image=gcr.io/$PROJECT_ID/capstone-agentic-ai-frontend:$COMMIT_SHA
       - --region=us-central1
       - --platform=managed
       - --allow-unauthenticated
