@@ -5,7 +5,7 @@ steps:
       - -t
       - "gcr.io/$PROJECT_ID/capstone-agentic-ai-frontend:$COMMIT_SHA"
       - --build-arg
-      - NEXT_PUBLIC_API_URL=https://capstone-agentic-ai-backend-177617146543.us-central1.run.app
+      - NEXT_PUBLIC_API_URL=https://capstone-agentic-ai-backend-3j5mi36wwa-uc.a.run.app
       - frontend/
 
   - name: "gcr.io/cloud-builders/docker"
