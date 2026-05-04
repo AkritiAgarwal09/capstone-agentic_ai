@@ -1,0 +1,6 @@
+pyproject.toml
+academic_copilot_backend.egg-info/PKG-INFO
+academic_copilot_backend.egg-info/SOURCES.txt
+academic_copilot_backend.egg-info/dependency_links.txt
+academic_copilot_backend.egg-info/requires.txt
+academic_copilot_backend.egg-info/top_level.txt

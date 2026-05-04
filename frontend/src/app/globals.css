@@ -1,0 +1,140 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ink-950: #0d0b08;
+  --ink-900: #1a1712;
+  --ink-800: #252118;
+  --ink-700: #352f22;
+  --ink-600: #554d3a;
+  --ink-500: #7a7060;
+  --ink-400: #a8a090;
+  --ink-300: #c8c2b8;
+  --ink-200: #e0ddd8;
+  --ink-100: #f0ede8;
+  --ink-50:  #f8f6f3;
+
+  --amber:       #d4a847;
+  --amber-light: #f0c860;
+  --sage:        #5a8a6a;
+  --sage-light:  #7aaa8a;
+  --crimson:     #b84040;
+  --crimson-light: #d86060;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--ink-950);
+  color: var(--ink-200);
+  font-family: "DM Sans", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Academic prose renderer ─────────────────────────────── */
+.prose-academic {
+  color: var(--ink-200);
+  font-family: "DM Sans", sans-serif;
+  line-height: 1.75;
+  max-width: 72ch;
+}
+
+.prose-academic h1 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--ink-50);
+  margin-bottom: 0.5rem;
+  margin-top: 2rem;
+  line-height: 1.3;
+}
+
+.prose-academic h2 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--ink-100);
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid var(--ink-700);
+}
+
+.prose-academic h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--amber);
+  margin-top: 1.5rem;
+  margin-bottom: 0.4rem;
+}
+
+.prose-academic p {
+  margin-bottom: 1rem;
+  color: var(--ink-300);
+}
+
+.prose-academic strong {
+  color: var(--ink-100);
+  font-weight: 600;
+}
+
+.prose-academic em {
+  color: var(--ink-400);
+  font-style: italic;
+}
+
+.prose-academic ul,
+.prose-academic ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.prose-academic li {
+  margin-bottom: 0.3rem;
+  color: var(--ink-300);
+}
+
+.prose-academic code {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.82em;
+  background: var(--ink-800);
+  color: var(--amber-light);
+  padding: 0.15em 0.4em;
+  border-radius: 3px;
+}
+
+.prose-academic hr {
+  border: none;
+  border-top: 1px solid var(--ink-700);
+  margin: 2rem 0;
+}
+
+.prose-academic a {
+  color: var(--amber);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* ── Utility animations ───────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.35s ease both;
+}
+
+.stagger > * {
+  animation: fadeUp 0.35s ease both;
+}
+.stagger > *:nth-child(1) { animation-delay: 0.05s; }
+.stagger > *:nth-child(2) { animation-delay: 0.10s; }
+.stagger > *:nth-child(3) { animation-delay: 0.15s; }
+.stagger > *:nth-child(4) { animation-delay: 0.20s; }
+.stagger > *:nth-child(5) { animation-delay: 0.25s; }

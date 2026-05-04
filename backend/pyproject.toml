@@ -1,0 +1,23 @@
+[project]
+name = "academic-copilot-backend"
+version = "0.1.0"
+description = "Academic Copilot — multi-agent paper analysis backend"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.115.0",
+    "uvicorn[standard]>=0.32.0",
+    "pydantic-ai[ollama]>=1.0.0",
+    "pymupdf>=1.24.0",
+    "httpx>=0.27.0",
+    "python-multipart>=0.0.12",
+    "pydantic>=2.8.0",
+    "python-dotenv>=1.2.2",
+]
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = []
